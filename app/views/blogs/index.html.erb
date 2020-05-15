@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1><a href="about">Blogs</a></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Blog</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <div class="jumbotron">
+    <div class="container">
+        <h1>Want to Create a Blog?</h1>
+        <p>Are you ready to create a blog today?</p>
+        <br>
+        <p>
+            <%= button_to 'Get Shark Info', blogs_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Test Blog</h3>
+            <p>test....
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <h3>Test blog 2</h3>
+            <p>Test......
+            </p>
+        </div>
+    </div>
+</div>
+
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.name %></td>
+        <td><%= blog.blog %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path, :class => "btn btn-primary btn-sm" %> <%= link_to 'home', home_path, :class => "btn btn-primary btn-sm" %>
